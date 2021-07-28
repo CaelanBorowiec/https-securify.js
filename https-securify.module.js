@@ -1,5 +1,3 @@
-const config = { childList: true, subtree: true };
-
 const securify = function(mutationsList, observer) {
   for (const mutation of mutationsList) {
     for (var i = 0; i < mutation.addedNodes.length; i++) {
@@ -26,6 +24,5 @@ const securify = function(mutationsList, observer) {
 };
 
 if (window.location.protocol == "https:") {
-  const observer = new MutationObserver(securify);
-  observer.observe(document, config);
+  new MutationObserver(securify).observe(document, { childList: true, subtree: true });
 }
