@@ -15,7 +15,7 @@ const securify = function(elems) {
           break;
         let src = elem.attributes.src.value;
         if (src.split(':')[0] == "http")
-          elem.attributes.src = src.replace("http", "https");
+          elem.attributes.src.value = src.replace("http", "https");
         break;
       default:
         console.log(elem)
