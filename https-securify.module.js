@@ -9,6 +9,7 @@ const securify = function(elems) {
         if (href.split(':')[0] == "http")
           elem.href = href.replace("http", "https");
         break;
+      case 'IMG':
       case 'SCRIPT':
         // TODO: find a way to handle $(document).ready scripts failing
         if (!elem.attributes.hasOwnProperty('src'))
@@ -27,4 +28,5 @@ const securify = function(elems) {
 if (window.location.protocol == "https:") {
   securify(document.getElementsByTagName('link'));
   securify(document.getElementsByTagName('script'));
+  securify(document.getElementsByTagName('img'));
 }
