@@ -14,7 +14,6 @@ const securify = function(mutationsList, observer) {
           break;
         case 'IMG':
         case 'SCRIPT':
-          // TODO: find a way to handle $(document).ready scripts failing
           if (!elem.attributes.hasOwnProperty('src'))
             break;
           let src = elem.attributes.src.value;
