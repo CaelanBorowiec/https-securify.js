@@ -4,6 +4,7 @@ const securify = function(elems) {
   for (var i = 0; i < elems.length; i++) {
     let elem = elems[i];
     switch (elem.nodeName) {
+      case 'A':
       case 'LINK':
         let href = elem.href;
         if (href.split(':')[0] == "http")
@@ -29,4 +30,5 @@ if (window.location.protocol == "https:") {
   securify(document.getElementsByTagName('link'));
   securify(document.getElementsByTagName('script'));
   securify(document.getElementsByTagName('img'));
+  securify(document.getElementsByTagName('a'));
 }
