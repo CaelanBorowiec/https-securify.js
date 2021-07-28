@@ -10,12 +10,12 @@ const securify = function(elems) {
           elem.href = href.replace("http", "https");
         break;
       case 'SCRIPT':
-        console.log(elem)
+        // TODO: find a way to handle $(document).ready scripts failing
         if (!elem.attributes.hasOwnProperty('src'))
           break;
         let src = elem.attributes.src.value;
         if (src.split(':')[0] == "http")
-          console.log(src)
+          elem.attributes.src = src.replace("http", "https");
         break;
       default:
         console.log(elem)
@@ -25,6 +25,6 @@ const securify = function(elems) {
 
 }
 if (window.location.protocol == "https:") {
-  // securify(document.getElementsByTagName('link'));
+  securify(document.getElementsByTagName('link'));
   securify(document.getElementsByTagName('script'));
 }
